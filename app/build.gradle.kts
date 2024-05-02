@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.lydia.contact"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -94,6 +94,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     testImplementation(libs.mockk)
     testImplementation(libs.junit)
+    testImplementation(libs.truth)
+    testImplementation(libs.mockWebServer)
+    testImplementation(libs.mockkAndroid)
+    testImplementation(libs.turbine)
+    testImplementation(libs.androidx.paging.testing)
 
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.navigation.compose)
