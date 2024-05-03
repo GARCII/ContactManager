@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.lydia.contact.ui.contactdetail.ContactDetailScreen
 import com.lydia.contact.ui.contacts.ContactsScreen
+import com.lydia.contact.ui.splash.SplashScreen
 
 import com.lydia.contact.ui.theme.ContactManagerTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,13 +37,23 @@ fun MainActivityContent() {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Contacts.route,
-        modifier = Modifier.fillMaxSize()) {
+        startDestination = Route.Splash.route,
+        modifier = Modifier.fillMaxSize()
+    ) {
+
+        composable(
+            route = Route.Splash.route
+        ) {
+            SplashScreen(
+                navController = navController
+            )
+        }
+
         composable(
             route = Route.Contacts.route
         ) {
             ContactsScreen(
-                onNavigateUp = {contactId ->
+                onNavigateUp = { contactId ->
                     navController.navigate("${Route.ContactDetail.route}/$contactId")
                 })
         }

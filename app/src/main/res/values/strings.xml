@@ -4,6 +4,7 @@
     <string name="contact_detail_back">Back</string>
     <string name="contact_list_title">Contacts</string>
     <string name="contact_list_retry">Retry</string>
-    <string name="contact_list_failed">Failed to display contacts, Please hit Retry.</string>
+    <string name="contact_list_failed">Failed to load contacts, Please hit Retry.</string>
     <string name="contact_list_internet_error">No internet connection</string>
+    <string name="contact_list_empty">No Contacts found</string>
 </resources>

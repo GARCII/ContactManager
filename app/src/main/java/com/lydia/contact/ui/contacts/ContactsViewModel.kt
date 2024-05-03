@@ -9,16 +9,15 @@ import com.lydia.contact.domain.usecase.GetContactsUseCase
 import com.lydia.contact.network.ConnectivityObserver
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
 class ContactsViewModel @Inject constructor(
-      getContactsUseCase: GetContactsUseCase,
-      private val networkConnectivityObserver: ConnectivityObserver
+    getContactsUseCase: GetContactsUseCase,
+    private val networkConnectivityObserver: ConnectivityObserver
 ): ViewModel() {
 
     val contactsFlow: Flow<PagingData<ContactUi>> =
@@ -35,18 +34,9 @@ class ContactsViewModel @Inject constructor(
                 }
             }.cachedIn(viewModelScope)
 
-    private val _networkStatus = MutableStateFlow(ConnectivityObserver.Status.Unavailable)
-    val networkStatus = _networkStatus.asStateFlow()
-
-    init {
-        observeConnectivityStatus()
-    }
-
-    private fun observeConnectivityStatus() {
-        viewModelScope.launch {
-            networkConnectivityObserver.observe().collect { status ->
-                _networkStatus.value = status
-            }
-        }
-    }
+    val networkStatus = networkConnectivityObserver.observe().stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5_000),
+                initialValue = ConnectivityObserver.Status.Unavailable
+            )
 }
