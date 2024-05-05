@@ -20,5 +20,5 @@ interface ContactDao {
     suspend fun getContactById(id: Int): ContactEntity
 
     @Query("DELETE FROM contact")
-    suspend fun clearAll(): Int
+    suspend fun clearAll()
 }
