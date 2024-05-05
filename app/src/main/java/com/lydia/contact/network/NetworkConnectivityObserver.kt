@@ -47,6 +47,6 @@ class NetworkConnectivityObserver(
             awaitClose {
                 connectivityManager.unregisterNetworkCallback(callback)
             }
-        }.distinctUntilChanged().flowOn(Dispatchers.IO)
+        }.distinctUntilChanged()
     }
 }

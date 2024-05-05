@@ -87,7 +87,7 @@ fun ContactDetailContent(
 
         ContactImage(
             modifier = Modifier
-                .clip(RoundedCornerShape(75.dp))
+                .clip(RoundedCornerShape(50.dp))
                 .size(200.dp)
                 .align(Alignment.CenterHorizontally),
             imageUrl = contactDetailUi.value.picture

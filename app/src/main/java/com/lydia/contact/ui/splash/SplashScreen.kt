@@ -36,9 +36,8 @@ fun SplashScreen(
                     inclusive = true
                 }
             }
-        } else {
-            null
-        }
+        } else { null }
+
         navController.navigate(Route.Contacts.route, navOptions)
     }
 
