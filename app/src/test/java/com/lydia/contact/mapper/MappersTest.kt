@@ -1,4 +1,4 @@
-package com.lydia.contact
+package com.lydia.contact.mapper
 
 import com.lydia.contact.data.local.entity.ContactEntity
 import com.lydia.contact.data.mapper.toContact
@@ -35,7 +35,7 @@ class MapperTest {
                 "ساری",
                 CoordinatesDto("27.4002", "63.1324"),
                 "Iran",
-                96375,
+                "96375",
                 "آذربایجان شرقی",
                 StreetDto("کارگر", 830),
                 TimezoneDto("Brazil, Buenos Aires, Georgetown", "-3:00")
@@ -59,7 +59,6 @@ class MapperTest {
             ),
             registered = Registered(15, "2009-02-24T13:53:58.299Z")
         )
-
 
         contactEntity = ContactEntity(
             id = 0,

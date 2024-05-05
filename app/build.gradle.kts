@@ -53,10 +53,11 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.material3)
 
     implementation(libs.hilt.android)
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.junit.ktx)
     kapt(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
@@ -85,7 +86,6 @@ dependencies {
     implementation(libs.moshi)
     implementation(libs.okhttp.logging)
 
-    androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     testImplementation (libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
@@ -93,16 +93,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     testImplementation(libs.mockk)
-    testImplementation(libs.junit)
-    testImplementation(libs.truth)
-    testImplementation(libs.mockWebServer)
-    testImplementation(libs.mockkAndroid)
-    testImplementation(libs.turbine)
     testImplementation(libs.androidx.paging.testing)
 
-    implementation(libs.androidx.fragment)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.paging.runtime.ktx)
     implementation(libs.androidx.paging.compose)
-    implementation(libs.androidx.core.splashscreen)
 }
